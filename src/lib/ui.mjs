@@ -30,12 +30,13 @@ export const abs = p => SITE + p;
 const tel = `tel:${company.phone}`;
 
 // ---------- картинки ----------
-export function img(id, { sizes = '(max-width: 760px) 100vw, 50vw', cls = '', eager = false, caption = false } = {}) {
+export function img(id, { sizes = '(max-width: 760px) 100vw, 50vw', cls = '', eager = false, caption = false, bare = false } = {}) {
   const m = images[id];
   if (!m) throw new Error('нет фото ' + id);
-  const srcset = [480, 960, 1600].filter(s => s <= m.w || s === 480).map(s => `${url(`/assets/img/${id}-${s}.webp`)} ${Math.min(s, m.w)}w`).join(', ');
+  const srcset = (m.sizes || [480, 960, 1600]).filter(s => s <= m.w || s === (m.sizes || [480])[0]).map(s => `${url(`/assets/img/${id}-${s}.webp`)} ${Math.min(s, m.w)}w`).join(', ');
   const h = Math.round(960 * m.h / m.w);
   const tag = `<img src="${url(`/assets/img/${id}-960.webp`)}" srcset="${srcset}" sizes="${sizes}" width="960" height="${h}" alt="${esc(m.alt)}"${eager ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"'}${cls ? ` class="${cls}"` : ''}>`;
+  if (bare) return tag;
   if (m.kind === 'stock') {
     const c = m.credit;
     return `<figure class="ph ph--stock">${tag}<figcaption>Фото для примера · <a href="${c.page}" target="_blank" rel="noopener">${esc(c.author)}</a>, <a href="${c.licenseUrl}" target="_blank" rel="noopener">${esc(c.license)}</a>, Wikimedia Commons</figcaption></figure>`;
@@ -71,7 +72,7 @@ function footer() {
   return `<footer class="ftr">
   <div class="wrap ftr__grid">
     <div>
-      <a class="logo logo--light" href="${url('/')}">${logo}<span class="logo__txt"><b>${esc(company.brand)}</b><small>плиточник · ${esc(company.city)}</small></span></a>
+      <a class="logo" href="${url('/')}">${logo}<span class="logo__txt"><b>${esc(company.brand)}</b><small>плиточник · ${esc(company.city)}</small></span></a>
       <p class="ftr__about">Мастер ${esc(company.master)}. Укладка плитки и керамогранита, ниши и полки, запил углов под 45°, ванные комнаты под ключ. ${esc(company.city)}, ${esc(company.region)}.</p>
     </div>
     <div>
@@ -119,6 +120,10 @@ export const crumbsLd = crumbs => ({ '@context': 'https://schema.org', '@type': 
 export const faqLd = faq => ({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') } })) });
 
 // ---------- общие блоки ----------
+export function credit(id) {
+  const c = images[id].credit;
+  return `Фото для примера · <a href="${c.page}" target="_blank" rel="noopener">${esc(c.author)}</a>, <a href="${c.licenseUrl}" target="_blank" rel="noopener">${esc(c.license)}</a>, Wikimedia Commons`;
+}
 export function crumbs(list) {
   return `<nav class="crumbs wrap" aria-label="Хлебные крошки"><ol>${list.map((c, i) => i === list.length - 1 ? `<li aria-current="page">${esc(c.name)}</li>` : `<li><a href="${url(c.path)}">${esc(c.name)}</a></li>`).join('')}</ol></nav>`;
 }
@@ -159,12 +164,12 @@ export function layout(p) {
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#16181b">
+<meta name="theme-color" content="#fbf7f1">
 <link rel="icon" href="${url('/favicon.svg')}" type="image/svg+xml">
 <link rel="icon" href="${url('/favicon.ico')}" sizes="48x48">
 <link rel="apple-touch-icon" href="${url('/apple-touch-icon.png')}">
-<link rel="preload" href="${url('/assets/fonts/Unbounded-normal-700-cyrillic.woff2')}" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="${url('/assets/fonts/Manrope-normal-400-800-cyrillic.woff2')}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="${url('/assets/fonts/Oswald-normal-500-700-cyrillic.woff2')}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="${url('/assets/fonts/PTSans-normal-400-cyrillic.woff2')}" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="${url('/assets/css/style.css')}?v=${pkgVersion}">
 <script>document.documentElement.classList.add('js')</script>
 ${ld.map(o => `<script type="application/ld+json">${JSON.stringify(o)}</script>`).join('\n')}

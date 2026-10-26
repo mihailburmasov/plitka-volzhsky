@@ -155,10 +155,10 @@ ${draft('Ванная: этапы', `<ol class="steps steps--compact">
 
 for (const s of SERVICES) SERVICE_LINKS.push({ path: `/uslugi/${s.slug}/`, short: s.short });
 
-export function serviceCard(s) {
+export function serviceCard(s, h = 'h3') {
   return `<a class="svc reveal" href="${url(`/uslugi/${s.slug}/`)}">
   <span class="svc__img">${img(s.cover, { sizes: '(max-width: 760px) 100vw, 33vw' }).replace(/<figcaption>.*?<\/figcaption>/, '')}</span>
-  <span class="svc__body">${icons[s.icon]}<h3 class="h4">${esc(s.short)}</h3><span class="svc__more">Подробнее ${icons.arrow}</span></span>
+  <span class="svc__body">${icons[s.icon]}<${h} class="h4">${esc(s.short)}</${h}><span class="svc__more">Подробнее ${icons.arrow}</span></span>
 </a>`;
 }
 
@@ -207,7 +207,7 @@ export function servicesHub() {
 <section class="sec sec--top"><div class="wrap">
   <h1 class="h1">Услуги плиточника в Волжском</h1>
   <p class="lead lead--narrow">Укладываю плитку и керамогранит и беру на себя всё, что вокруг: от демонтажа старого кафеля до ванной комнаты под ключ.</p>
-  <div class="svcs">${SERVICES.map(serviceCard).join('')}</div>
+  <div class="svcs">${SERVICES.map(s => serviceCard(s, 'h2')).join('')}</div>
 </div></section>
 ${ctaBand()}`,
   };

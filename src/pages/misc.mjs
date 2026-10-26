@@ -1,4 +1,4 @@
-import { company, url, esc, img, show, draft, isTodo, hasMetrika, crumbs, faqBlock, faqLd, ctaBand, business } from '../lib/ui.mjs';
+import { company, url, esc, img, credit, show, draft, isTodo, hasMetrika, crumbs, faqBlock, faqLd, ctaBand, business } from '../lib/ui.mjs';
 import { miterCompare, icons } from '../lib/svg.mjs';
 import { SERVICES, serviceCard } from './services.mjs';
 
@@ -70,16 +70,17 @@ export function home() {
     bodyClass: 'page-home',
     body: `
 <section class="hero">
+  <div class="hero__bg">${img('hero-vannaya', { eager: true, bare: true, sizes: '100vw' })}</div>
   <div class="wrap hero__in">
     <div class="hero__txt">
-      <p class="eyebrow eyebrow--light">Плиточник в Волжском · мастер ${esc(company.master)}</p>
+      <p class="eyebrow">Плиточник в Волжском · мастер ${esc(company.master)}</p>
       <h1 class="hero__h">Укладка плитки в&nbsp;Волжском — <em>ровно</em>, с&nbsp;запилом под&nbsp;45°</h1>
       <p class="hero__lead">Санузлы и ванные под ключ, кухонные фартуки и столешницы из керамогранита, ниши и полки из плитки. Работаю профессиональным инструментом и беру на себя электрику, сантехнику и короба.</p>
-      <div class="btns"><a class="btn" href="#raschet">Рассчитать стоимость</a><a class="btn btn--ghost-light" href="${tel}" data-goal="phone">${esc(company.phoneDisplay)}</a></div>
+      <div class="btns"><a class="btn" href="#raschet">Рассчитать стоимость</a><a class="btn btn--ghost" href="${tel}" data-goal="phone">${esc(company.phoneDisplay)}</a></div>
       <ul class="hero__chips">${['Запил 45°', 'Система выравнивания СВП', 'Ниши и полки', 'Под ключ'].map(c => `<li>${c}</li>`).join('')}</ul>
     </div>
-    <div class="hero__img cut">${img('elochka-vannaya', { eager: true, sizes: '(max-width: 760px) 100vw, 42vw' })}</div>
   </div>
+  <p class="hero__credit">${credit('hero-vannaya')}</p>
 </section>
 
 <section class="sec sec--intro"><div class="wrap intro">
@@ -92,14 +93,14 @@ export function home() {
   <div class="svcs">${SERVICES.map(serviceCard).join('')}</div>
 </div></section>
 
-<section class="sec sec--dark miter"><div class="wrap miter__in">
+<section class="sec sec--peach miter"><div class="wrap miter__in">
   <div class="miter__txt reveal">
-    <p class="eyebrow eyebrow--light">${icons.miter} Деталь, по которой видно мастера</p>
+    <p class="eyebrow">${icons.miter} Деталь, по которой видно мастера</p>
     <h2 class="h2">Углы без пластиковых уголков</h2>
     <p>Внешние углы коробов, ниш, откосов и бортиков делаю запилом под 45°. Плитки сходятся тонким ребром, рисунок «огибает» угол, и нет полоски пластика, которая желтеет и выдаёт дешёвый ремонт.</p>
-    <a class="link link--light" href="${url('/uslugi/zapil-45/')}">Подробнее о запиле 45° ${icons.arrow}</a>
+    <a class="link" href="${url('/uslugi/zapil-45/')}">Подробнее о запиле 45° ${icons.arrow}</a>
   </div>
-  <div class="diagram-wrap diagram-wrap--dark reveal">${miterCompare}</div>
+  <div class="diagram-wrap reveal">${miterCompare}</div>
 </div></section>
 
 <section class="sec" id="raboty"><div class="wrap">
@@ -123,7 +124,7 @@ export function home() {
 
 ${faqBlock(HOME_FAQ)}
 
-<section class="sec sec--dark" id="raschet"><div class="wrap raschet">
+<section class="sec sec--mint" id="raschet"><div class="wrap raschet">
   <div class="raschet__txt">
     <h2 class="h2">Рассчитать стоимость</h2>
     <p>Ответьте на 4 вопроса и оставьте телефон — перезвоню, уточню детали и назову стоимость и сроки.</p>

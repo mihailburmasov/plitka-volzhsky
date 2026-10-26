@@ -41,21 +41,21 @@ fs.cpSync('src/assets', path.join(OUT, 'assets'), { recursive: true });
   fs.rmSync(path.join(cssDir, 'fonts.css'));
 }
 fs.copyFileSync('src/static/favicon.svg', path.join(OUT, 'favicon.svg'));
-await sharp('src/static/favicon.svg').resize(180, 180).flatten({ background: '#16181b' }).png().toFile(path.join(OUT, 'apple-touch-icon.png'));
+await sharp('src/static/favicon.svg').resize(180, 180).flatten({ background: '#fbf7f1' }).png().toFile(path.join(OUT, 'apple-touch-icon.png'));
 await sharp('src/static/favicon.svg').resize(48, 48).png().toFile(path.join(OUT, 'favicon.ico')); // PNG внутри .ico понимают все современные браузеры
 
 // OG-картинка 1200×630: фото справа, текст на графите слева
 {
   const photo = await sharp('src/assets/img/elochka-vannaya-960.webp').resize(520, 630, { fit: 'cover', position: 'bottom' }).toBuffer();
-  const grid = Array.from({ length: 10 }, (_, i) => `<path d="M${i * 68} 0V630" stroke="#ffffff" stroke-opacity=".05"/>`).join('') + Array.from({ length: 10 }, (_, i) => `<path d="M0 ${i * 68}H680" stroke="#ffffff" stroke-opacity=".05"/>`).join('');
-  const svg = `<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="630" fill="#16181b"/>${grid}
-  <path d="M60 70h34l14 14v34H60z" fill="#d07a45"/><path d="M60 94h48M84 70v48" stroke="#16181b" stroke-width="3"/>
-  <text x="128" y="106" font-family="Arial, sans-serif" font-weight="700" font-size="30" fill="#f4f1ec">${company.brand}</text>
-  <text x="60" y="260" font-family="Arial, sans-serif" font-weight="700" font-size="58" fill="#f4f1ec">Укладка плитки</text>
-  <text x="60" y="330" font-family="Arial, sans-serif" font-weight="700" font-size="58" fill="#f4f1ec">в Волжском</text>
-  <text x="60" y="400" font-family="Arial, sans-serif" font-size="27" fill="#d07a45">Запил 45° · ниши · ванная под ключ</text>
-  <text x="60" y="540" font-family="Arial, sans-serif" font-weight="700" font-size="34" fill="#f4f1ec">${company.phoneDisplay}</text></svg>`;
-  await sharp(Buffer.from(svg)).composite([{ input: photo, left: 680, top: 0 }, { input: Buffer.from('<svg width="520" height="630"><path d="M0 0H460L520 60V630H0Z" fill="none"/><path d="M460 0H520V60Z" fill="#16181b"/></svg>'), left: 680, top: 0 }]).jpeg({ quality: 84 }).toFile(path.join(OUT, 'assets/og.jpg'));
+  const grid = Array.from({ length: 10 }, (_, i) => `<path d="M${i * 68} 0V630" stroke="#16181b" stroke-opacity=".05"/>`).join('') + Array.from({ length: 10 }, (_, i) => `<path d="M0 ${i * 68}H680" stroke="#16181b" stroke-opacity=".05"/>`).join('');
+  const svg = `<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="630" fill="#fbf7f1"/>${grid}
+  <path d="M60 70h34l14 14v34H60z" fill="#d07a45"/><path d="M60 94h48M84 70v48" stroke="#fbf7f1" stroke-width="3"/>
+  <text x="128" y="106" font-family="Arial, sans-serif" font-weight="700" font-size="30" fill="#16181b">${company.brand}</text>
+  <text x="60" y="260" font-family="Arial, sans-serif" font-weight="700" font-size="58" fill="#16181b">Укладка плитки</text>
+  <text x="60" y="330" font-family="Arial, sans-serif" font-weight="700" font-size="58" fill="#16181b">в Волжском</text>
+  <text x="60" y="400" font-family="Arial, sans-serif" font-size="27" fill="#9c4f1f">Запил 45° · ниши · ванная под ключ</text>
+  <text x="60" y="540" font-family="Arial, sans-serif" font-weight="700" font-size="34" fill="#16181b">${company.phoneDisplay}</text></svg>`;
+  await sharp(Buffer.from(svg)).composite([{ input: photo, left: 680, top: 0 }, { input: Buffer.from('<svg width="520" height="630"><path d="M0 0H460L520 60V630H0Z" fill="none"/><path d="M460 0H520V60Z" fill="#fbf7f1"/></svg>'), left: 680, top: 0 }]).jpeg({ quality: 84 }).toFile(path.join(OUT, 'assets/og.jpg'));
 }
 
 // ---------- SEO-файлы ----------

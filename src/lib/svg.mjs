@@ -3,14 +3,14 @@
 // Внешний угол: пластиковый уголок против запила 45° (вид сверху, разрез) — две схемы рядом, на телефоне друг под другом
 const miterOne = (id, title, desc, head, accentHead, shape, notes) => `<svg class="diagram" viewBox="0 0 300 300" role="img" aria-labelledby="${id}-t ${id}-d">
 <title id="${id}-t">${title}</title><desc id="${id}-d">${desc}</desc>
-<text x="20" y="30" font-family="Manrope, sans-serif" font-size="17" font-weight="700" fill="${accentHead ? 'var(--d-accent)' : 'var(--d-ink)'}">${head}</text>
+<text x="20" y="30" font-family="PT Sans, Arial, sans-serif" font-size="17" font-weight="700" fill="${accentHead ? 'var(--d-accent)' : 'var(--d-ink)'}">${head}</text>
 <g transform="translate(20 56)"><rect x="0" y="0" width="210" height="170" fill="var(--d-wall)"/>${shape}</g>
-<g font-family="Manrope, sans-serif" font-size="15" fill="var(--d-muted)">${notes.map((n, i) => `<text x="20" y="${258 + i * 20}">${n}</text>`).join('')}</g>
+<g font-family="PT Sans, Arial, sans-serif" font-size="15" fill="var(--d-muted)">${notes.map((n, i) => `<text x="20" y="${258 + i * 20}">${n}</text>`).join('')}</g>
 </svg>`;
 export const miterCompare = `<div class="diagram-pair">${miterOne('mc1', 'Внешний угол с пластиковым уголком', 'Торцы плитки закрыты пластиковым профилем, полоска пластика видна на углу.', 'С пластиковым уголком', false,
   '<rect x="0" y="0" width="194" height="16" fill="var(--d-tile)" stroke="var(--d-line)"/><rect x="194" y="16" width="16" height="154" fill="var(--d-tile)" stroke="var(--d-line)"/><path d="M190 -4 h28 v28 h-8 v-20 h-20z" fill="var(--d-plastic)" stroke="var(--d-line)"/>',
   ['Торцы прячет профиль, угол толще,', 'полоска пластика видна всегда'])}${miterOne('mc2', 'Внешний угол с запилом под 45°', 'Кромки двух плиток срезаны под 45° и сходятся в тонкий ровный угол без накладок.', 'Запил под 45°', true,
-  '<path d="M0 0 H226 L210 16 H0 Z" fill="var(--d-tile)" stroke="var(--d-line)"/><path d="M226 0 V170 H210 V16 Z" fill="var(--d-tile)" stroke="var(--d-line)"/><path d="M226 0 L210 16" stroke="var(--d-accent)" stroke-width="3"/><circle cx="226" cy="0" r="22" fill="none" stroke="var(--d-accent)" stroke-dasharray="4 4"/><text x="236" y="42" font-family="Manrope, sans-serif" font-size="16" font-weight="700" fill="var(--d-accent)">45°</text>',
+  '<path d="M0 0 H226 L210 16 H0 Z" fill="var(--d-tile)" stroke="var(--d-line)"/><path d="M226 0 V170 H210 V16 Z" fill="var(--d-tile)" stroke="var(--d-line)"/><path d="M226 0 L210 16" stroke="var(--d-accent)" stroke-width="3"/><circle cx="226" cy="0" r="22" fill="none" stroke="var(--d-accent)" stroke-dasharray="4 4"/><text x="236" y="42" font-family="PT Sans, Arial, sans-serif" font-size="16" font-weight="700" fill="var(--d-accent)">45°</text>',
   ['Кромки срезаны под 45° и сходятся', 'в тонкий угол без накладок'])}</div>`;
 
 // Ниша в стене / коробе (вид спереди)
@@ -22,7 +22,7 @@ export const nicheDiagram = `<svg class="diagram" viewBox="0 0 420 340" role="im
 <rect x="150" y="80" width="140" height="140" fill="var(--d-wall)" stroke="var(--d-accent)" stroke-width="3"/>
 <path d="M150 80 l12 12 h116 l12 -12 M150 220 l12 -12 h116 l12 12 M162 92 v116 M278 92 v116" fill="none" stroke="var(--d-line)" stroke-width="2"/>
 <path d="M162 150 h116" stroke="var(--d-line)" stroke-width="2"/>
-<g font-family="Manrope, sans-serif" font-size="14" fill="var(--d-ink)">
+<g font-family="PT Sans, Arial, sans-serif" font-size="14" fill="var(--d-ink)">
   <path d="M290 82 h10" stroke="var(--d-accent)"/><text x="304" y="87">кромки —</text><text x="304" y="105">запил 45°</text>
   <path d="M150 210 l-60 40" stroke="var(--d-accent)"/><text x="22" y="270">дно с уклоном</text><text x="22" y="288">к краю — вода не стоит</text>
   <path d="M220 80 v-46" stroke="var(--d-accent)" stroke-dasharray="4 4"/><text x="140" y="28">швы ниши = швы стены</text>
@@ -37,7 +37,7 @@ export const hatchDiagram = `<svg class="diagram" viewBox="0 0 420 300" role="im
 <rect x="10" y="10" width="400" height="280" fill="url(#hd-g)"/>
 <rect x="130" y="130" width="120" height="120" fill="none" stroke="var(--d-accent)" stroke-width="3" stroke-dasharray="8 6"/>
 <circle cx="236" cy="190" r="5" fill="var(--d-accent)"/>
-<g font-family="Manrope, sans-serif" font-size="14" fill="var(--d-ink)">
+<g font-family="PT Sans, Arial, sans-serif" font-size="14" fill="var(--d-ink)">
   <path d="M250 140 l60 -60" stroke="var(--d-accent)"/><text x="262" y="70">дверца в той же плитке,</text><text x="262" y="88">контур = обычный шов</text>
   <path d="M236 195 l40 60" stroke="var(--d-accent)"/><text x="250" y="276">нажимной замок</text>
 </g>

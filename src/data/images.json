@@ -119,6 +119,23 @@
   "alt": "Процесс: укладка у окна, натянутые шнуры и зажимы СВП держат плоскость",
   "kind": "client"
  },
+ "hero-vannaya": {
+  "w": 3840,
+  "h": 2160,
+  "sizes": [
+   960,
+   1600,
+   2400
+  ],
+  "alt": "Пример: светлая ванная с рельефной плиткой под мрамор и нишей со стеклянными полками",
+  "kind": "stock",
+  "credit": {
+   "author": "DeluxeBath",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Granlusso_Bathroom_setting_at_Deluxe_bathrooms.jpg"
+  }
+ },
  "stoleshnitsa-keramogranit": {
   "w": 1920,
   "h": 1280,

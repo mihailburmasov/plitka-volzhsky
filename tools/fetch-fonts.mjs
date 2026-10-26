@@ -4,8 +4,8 @@ import fs from 'fs';
 const OUT = 'src/assets/fonts';
 fs.mkdirSync(OUT, { recursive: true });
 const families = [
-  'Unbounded:wght@500;700',
-  'Manrope:wght@400..800',
+  'Oswald:wght@500..700',
+  'PT+Sans:ital,wght@0,400;0,700;1,400',
 ];
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36';
 let css = '';
