@@ -340,7 +340,8 @@ p { margin: 0 0 1em; }
 .phero__in { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; padding-top: 28px; padding-bottom: clamp(40px, 6vw, 72px); border-bottom: 1px solid var(--line); }
 .phero__img { aspect-ratio: 4 / 3.4; overflow: hidden; }
 .phero__img img, .phero__img figure { width: 100%; height: 100%; object-fit: cover; margin: 0; }
-.phero__img .ph--stock { position: relative; }
+.phero__img .ph { position: relative; height: 100%; }
+.phero__img .ph figcaption { position: absolute; left: 0; bottom: 0; right: 0; padding: 22px 12px 8px; background: linear-gradient(transparent, rgba(0,0,0,.7)); color: #f1ece4; font-size: 13px; }
 .phero__img .ph--stock figcaption { position: absolute; left: 0; bottom: 0; right: 0; padding: 18px 12px 8px; background: linear-gradient(transparent, rgba(0,0,0,.7)); color: #e6e1d9; }
 .phero__img .ph--stock img { height: 100%; }
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; margin-bottom: 40px; }

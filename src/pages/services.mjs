@@ -35,7 +35,7 @@ export const SERVICES = [
     ],
   },
   {
-    slug: 'zapil-45', short: 'Запил углов под 45° (заусовка)', icon: 'miter', cover: 'zoloto-ugol', diagram: true,
+    slug: 'zapil-45', short: 'Запил углов под 45° (заусовка)', icon: 'miter', cover: 'zapil-polka', coverCaption: 'Кромка полки и угол ниши — запил 45°, без уголков', diagram: true,
     h1: 'Запил плитки под 45° (заусовка) в Волжском',
     title: 'Запил плитки под 45°, заусовка углов в Волжском',
     description: 'Запил плитки и керамогранита под 45° в Волжском: внешние углы без пластиковых уголков — короба, откосы, ниши, бортики, ступени, столешницы. Мастер Евгений.',
@@ -181,7 +181,7 @@ export function servicePage(s) {
     <p class="lead">${s.lead}</p>
     <div class="btns"><a class="btn" href="${url('/#raschet')}">Рассчитать стоимость</a><a class="btn btn--ghost" href="tel:${company.phone}" data-goal="phone">${esc(company.phoneDisplay)}</a></div>
   </div>
-  <div class="phero__img cut">${img(s.cover, { eager: true, sizes: '(max-width: 760px) 100vw, 45vw' })}</div>
+  <div class="phero__img cut">${img(s.cover, { eager: true, sizes: '(max-width: 760px) 100vw, 45vw', caption: s.coverCaption })}</div>
 </div></section>
 <section class="sec"><div class="wrap">${s.body()}</div></section>
 ${s.gallery?.length ? `<section class="sec sec--tint"><div class="wrap">
