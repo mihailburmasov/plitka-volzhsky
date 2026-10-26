@@ -1,0 +1,8 @@
+node_modules/
+dist/
+# исходные фото клиента: в EXIF бывают GPS-координаты квартир заказчиков; в репозиторий — только webp из src/assets/img
+_source/
+# рабочие записки — репозиторий публичный (GitHub Pages)
+HANDOFF.md
+ПИСЬМО-КЛИЕНТУ.md
+tools/_*.mjs

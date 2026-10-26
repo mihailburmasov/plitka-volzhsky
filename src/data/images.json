@@ -1,0 +1,194 @@
+{
+ "chernyy-mramor-polka": {
+  "w": 1440,
+  "h": 1920,
+  "alt": "Санузел: тёмный керамогранит под мрамор, короб инсталляции с полкой из плитки, укладка на СВП",
+  "kind": "client"
+ },
+ "chernyy-mramor-dush": {
+  "w": 1440,
+  "h": 1920,
+  "alt": "Душевая зона с поддоном из плитки и линейным трапом, стены — тёмный керамогранит под мрамор",
+  "kind": "client"
+ },
+ "chernyy-mramor-okno": {
+  "w": 1440,
+  "h": 1920,
+  "alt": "Тот же санузел в процессе: светлый керамогранит крупного формата, оконный откос в плитке",
+  "kind": "client"
+ },
+ "elochka-vannaya": {
+  "w": 1440,
+  "h": 1920,
+  "alt": "Ванная комната: стена с плиткой «ёлочка» под дерево, серый керамогранит, тумба и душевая стойка",
+  "kind": "client"
+ },
+ "elochka-ekran": {
+  "w": 1440,
+  "h": 1920,
+  "alt": "Та же ванная: экран ванны и бортик облицованы плиткой, ёлочка на стене",
+  "kind": "client"
+ },
+ "zoloto-installyatsiya": {
+  "w": 1440,
+  "h": 1920,
+  "alt": "Санузел: вертикальная вставка из сине-золотой плитки на коробе инсталляции, стены под белый мрамор",
+  "kind": "client"
+ },
+ "zoloto-stena": {
+  "w": 1440,
+  "h": 1920,
+  "alt": "Стена из сине-золотого керамогранита крупного формата, шов в шов",
+  "kind": "client"
+ },
+ "zoloto-ugol": {
+  "w": 1440,
+  "h": 1920,
+  "alt": "Стыки двух видов плитки в углу, пол и стены под мрамор",
+  "kind": "client"
+ },
+ "zoloto-dush": {
+  "w": 1440,
+  "h": 1920,
+  "alt": "Душевая зона под белый мрамор с линейным трапом у стены",
+  "kind": "client"
+ },
+ "belyy-relef": {
+  "w": 1440,
+  "h": 1920,
+  "alt": "Санузел: белая плитка с рельефной вставкой, ровные швы",
+  "kind": "client"
+ },
+ "belyy-relef-2": {
+  "w": 1440,
+  "h": 1920,
+  "alt": "Белая плитка с объёмным рельефом, раскладка под выводы сантехники",
+  "kind": "client"
+ },
+ "belyy-relef-ugol": {
+  "w": 1440,
+  "h": 1920,
+  "alt": "Угол санузла: белая плитка, швы совпадают по стенам",
+  "kind": "client"
+ },
+ "fartuk-kuhnya": {
+  "w": 1920,
+  "h": 1440,
+  "alt": "Кухонный фартук из белой глянцевой плитки до потолка над столешницей",
+  "kind": "client"
+ },
+ "fartuk-kuhnya-2": {
+  "w": 1440,
+  "h": 1920,
+  "alt": "Фартук из белой плитки: вид сбоку, ровная плоскость и швы",
+  "kind": "client"
+ },
+ "fartuk-kuhnya-3": {
+  "w": 1920,
+  "h": 1440,
+  "alt": "Кухня с фартуком из белой плитки, вырезы под розетки",
+  "kind": "client"
+ },
+ "seryy-dva-tona": {
+  "w": 1920,
+  "h": 1440,
+  "alt": "Санузел в двух тонах: серая плитка снизу, светлая сверху",
+  "kind": "client"
+ },
+ "seryy-dva-tona-2": {
+  "w": 1440,
+  "h": 1920,
+  "alt": "Тот же санузел: пол и стены в одной раскладке",
+  "kind": "client"
+ },
+ "process-svp": {
+  "w": 1920,
+  "h": 1440,
+  "alt": "Процесс: облицовка стены на системе выравнивания плитки (СВП)",
+  "kind": "client"
+ },
+ "process-kollektor": {
+  "w": 1920,
+  "h": 1440,
+  "alt": "Процесс: облицовка стен вокруг коллекторного шкафа, выводы под розетки",
+  "kind": "client"
+ },
+ "process-okno": {
+  "w": 1920,
+  "h": 1440,
+  "alt": "Процесс: укладка у окна, натянутые шнуры и зажимы СВП держат плоскость",
+  "kind": "client"
+ },
+ "stoleshnitsa-keramogranit": {
+  "w": 1920,
+  "h": 1280,
+  "alt": "Пример: столешница из керамогранита под мрамор",
+  "kind": "stock",
+  "credit": {
+   "author": "VictoriaGina",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Macchia_Vechhia_Kitchen.jpg"
+  }
+ },
+ "svp-ukladka": {
+  "w": 1920,
+  "h": 1281,
+  "alt": "Пример: укладка крупного формата на систему выравнивания",
+  "kind": "stock",
+  "credit": {
+   "author": "Frank Winkelmann",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "page": "https://commons.wikimedia.org/wiki/File:Verlegen_von_Fliesen_mit_einem_Nivelliersystem.jpg"
+  }
+ },
+ "plitkorez": {
+  "w": 1721,
+  "h": 2376,
+  "alt": "Пример: резка плитки на станке с водяным охлаждением",
+  "kind": "stock",
+  "credit": {
+   "author": "Hustvedt",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Tile_saw.jpg"
+  }
+ },
+ "elektrika": {
+  "w": 1920,
+  "h": 1440,
+  "alt": "Пример: монтаж розетки",
+  "kind": "stock",
+  "credit": {
+   "author": "Santeri Viinamäki",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Electrician_installing_socket_20160817.jpg"
+  }
+ },
+ "gkl": {
+  "w": 1920,
+  "h": 1391,
+  "alt": "Пример: гипсокартон и инструмент для коробов",
+  "kind": "stock",
+  "credit": {
+   "author": "Timothyjosephwood",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Drywall_and_tools.jpg"
+  }
+ },
+ "zatirka": {
+  "w": 1920,
+  "h": 2560,
+  "alt": "Пример: затирка швов",
+  "kind": "stock",
+  "credit": {
+   "author": "Frank Winkelmann",
+   "license": "CC0",
+   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "page": "https://commons.wikimedia.org/wiki/File:Einschl%C3%A4mmen_eines_Fugenm%C3%B6rtels.jpg"
+  }
+ }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "plitka-volzhsky",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "images": "node tools/images.mjs",
+    "build": "node src/build.mjs",
+    "build:prod": "node src/build.mjs --prod",
+    "serve": "node tools/serve.mjs docs 8091"
+  },
+  "devDependencies": { "sharp": "^0.34.5" }
+}
