@@ -20,7 +20,7 @@ export const HOME_FAQ = [
   { q: 'Делаете ли ванную комнату под ключ?', a: 'Да. Беру ванную или санузел целиком: демонтаж старого кафеля, сантехника, электрика, короба из гипсокартона, скрытые люки, плитка с нишами и запилом 45°. Вы общаетесь с одним мастером.', more: `Этапы — на странице <a href="${url('/uslugi/vannaya-pod-klyuch/')}">ванная под ключ</a>.` },
   { q: 'Можно ли сделать нишу или полку из плитки?', a: 'Да: нишу в стене, если позволяет толщина, или в коробе из гипсокартона, и полку над коробом инсталляции. Швы ниши совпадают со стеной, кромки — с запилом 45°.' },
   { q: 'Нужно ли снимать старую плитку?', a: 'Чаще всего да. Если старая плитка отходит или звучит пусто, новая на ней не удержится. После осмотра скажу, что можно оставить. Демонтаж старого кафеля делаю сам.' },
-  { q: 'Где вы работаете?', a: `В городе ${company.city} (${company.region}).`, more: isTodo(company.areaNote) ? show(company.areaNote) : esc(company.areaNote) },
+  { q: 'Где вы работаете?', a: `Работаю ${company.cityIn} (${company.region}).`, more: isTodo(company.areaNote) ? show(company.areaNote) : esc(company.areaNote) },
 ];
 
 const process = [
@@ -48,7 +48,7 @@ ${step(4, 'Когда планируете начать?', 'when', ['Как мо
     <label class="fld"><span>Телефон</span><input name="phone" type="tel" autocomplete="tel" required inputmode="tel" placeholder="+7" maxlength="20"></label>
     <label class="fld fld--wide"><span>Комментарий <i>(необязательно)</i></span><textarea name="comment" rows="2" maxlength="600" placeholder="Например: санузел 4 м², плитка уже куплена"></textarea></label>
     <label class="hp" aria-hidden="true">Не заполняйте <input name="website" tabindex="-1" autocomplete="off"></label>
-    <label class="consent"><input type="checkbox" name="consent" checked required><span>Согласен на обработку персональных данных по <a href="${url('/politika-konfidentsialnosti/')}" target="_blank">политике конфиденциальности</a></span></label>
+    <label class="consent"><input type="checkbox" name="consent" checked required><span>Даю <a href="${url('/soglasie/')}" target="_blank">согласие на обработку персональных данных</a> по <a href="${url('/politika-konfidentsialnosti/')}" target="_blank">политике конфиденциальности</a></span></label>
   </div>
 </fieldset>
 <div class="qz__nav">
@@ -63,8 +63,8 @@ ${step(4, 'Когда планируете начать?', 'when', ['Как мо
 
 export function home() {
   return {
-    path: '/', title: 'Укладка плитки в Волжском — плиточник Евгений, «Ровный шов»',
-    ogTitle: 'Ровный шов — укладка плитки в Волжском',
+    path: '/', title: `Укладка плитки в Волжском — плиточник ${company.master}, «${company.brand}»`,
+    ogTitle: `${company.brand} — укладка плитки в Волжском`,
     description: 'Плиточник в Волжском: укладка плитки и керамогранита, запил 45°, ниши и полки из плитки, столешницы и фартуки, ванная под ключ. Тел. ' + company.phoneDisplay,
     jsonld: [business(), faqLd(HOME_FAQ)],
     bodyClass: 'page-home',
@@ -137,7 +137,7 @@ ${faqBlock(HOME_FAQ)}
 export function works() {
   const cr = [{ name: 'Главная', path: '/' }, { name: 'Работы', path: '/raboty/' }];
   return {
-    path: '/raboty/', title: 'Фото работ плиточника в Волжском — «Ровный шов»', crumbs: cr,
+    path: '/raboty/', title: `Фото работ плиточника в Волжском — «${company.brand}»`, crumbs: cr,
     description: 'Фото работ мастера-плиточника из Волжского: санузлы и ванные под ключ, керамогранит под мрамор, ёлочка, ниши и короба, кухонные фартуки.',
     jsonld: [business()],
     body: `${crumbs(cr)}
@@ -160,14 +160,14 @@ ${ctaBand('Хотите так же? Посчитаю стоимость ваш�
 export function contacts() {
   const cr = [{ name: 'Главная', path: '/' }, { name: 'Контакты', path: '/kontakty/' }];
   return {
-    path: '/kontakty/', title: 'Контакты плиточника в Волжском — «Ровный шов»', crumbs: cr,
+    path: '/kontakty/', title: `Контакты плиточника в Волжском — «${company.brand}»`, crumbs: cr,
     description: `Связаться с мастером-плиточником в Волжском: ${company.phoneDisplay}, звонок или MAX. Укладка плитки, ванные под ключ, запил 45°.`,
     jsonld: [business()],
     body: `${crumbs(cr)}
 <section class="sec sec--top"><div class="wrap contacts">
   <div>
     <h1 class="h1">Контакты</h1>
-    <p class="lead">Мастер ${esc(company.master)}, «${esc(company.brand)}». Работаю в городе ${esc(company.city)}, ${esc(company.region)}.</p>
+    <p class="lead">Мастер ${esc(company.master)}, «${esc(company.brand)}». Работаю ${esc(company.cityIn)}, ${esc(company.region)}.</p>
     <dl class="cdl">
       <dt>Телефон</dt><dd><a class="big" href="${tel}" data-goal="phone">${esc(company.phoneDisplay)}</a></dd>
       <dt>MAX</dt><dd>по этому же номеру ${isTodo(company.maxUrl) ? show(company.maxUrl) : `· <a href="${esc(company.maxUrl)}" target="_blank" rel="noopener" data-goal="max">написать в MAX</a>`}</dd>
@@ -178,7 +178,7 @@ export function contacts() {
   </div>
   <div class="contacts__card cut">
     <p class="h3">Посчитать стоимость</p>
-    <p>Пять коротких вопросов — и я перезвоню с ценой и сроками.</p>
+    <p>Ответьте на 4 вопроса — и я перезвоню с ценой и сроками.</p>
     <a class="btn" href="${url('/#raschet')}">Открыть расчёт</a>
   </div>
 </div></section>`,
@@ -189,8 +189,8 @@ export function privacy() {
   const cr = [{ name: 'Главная', path: '/' }, { name: 'Политика конфиденциальности', path: '/politika-konfidentsialnosti/' }];
   const op = show(company.operator);
   return {
-    path: '/politika-konfidentsialnosti/', title: 'Политика конфиденциальности — «Ровный шов»', crumbs: cr,
-    description: 'Политика обработки персональных данных на сайте мастера-плиточника «Ровный шов», Волжский: какие данные собираются через форму расчёта и как используются.',
+    path: '/politika-konfidentsialnosti/', title: `Политика конфиденциальности — «${company.brand}»`, crumbs: cr,
+    description: `Политика обработки персональных данных на сайте мастера-плиточника «${company.brand}», Волжский: какие данные собираются через форму расчёта и как используются.`,
     body: `${crumbs(cr)}
 <section class="sec sec--top"><div class="wrap wrap--narrow prose">
   <h1 class="h1">Политика конфиденциальности</h1>
@@ -202,7 +202,7 @@ export function privacy() {
   <h2 class="h3">3. Цели обработки</h2>
   <p>Связаться с вами, уточнить задачу, рассчитать стоимость и сроки работ. Данные не используются для рассылок и не передаются третьим лицам, кроме случаев, предусмотренных законом.</p>
   <h2 class="h3">4. Основание и срок</h2>
-  <p>Основание — ваше согласие, которое вы даёте, отмечая галочку в форме. Данные хранятся до достижения цели обработки, но не дольше одного года с момента обращения, либо до отзыва согласия.</p>
+  <p>Основание — ваше <a href="${url('/soglasie/')}">согласие</a>, которое вы даёте, отмечая галочку в форме. Данные хранятся до достижения цели обработки, но не дольше одного года с момента обращения, либо до отзыва согласия.</p>
   <h2 class="h3">5. Ваши права</h2>
   <p>Вы можете запросить сведения о своих данных, потребовать их уточнения или удаления и отозвать согласие, позвонив по телефону ${esc(company.phoneDisplay)}${isTodo(company.email) ? '' : ' или написав на ' + esc(company.email)}.</p>
   <h2 class="h3">6. Cookie</h2>
@@ -213,9 +213,31 @@ export function privacy() {
   };
 }
 
+export function consent() {
+  const cr = [{ name: 'Главная', path: '/' }, { name: 'Согласие на обработку персональных данных', path: '/soglasie/' }];
+  return {
+    path: '/soglasie/', title: `Согласие на обработку персональных данных — «${company.brand}»`, crumbs: cr,
+    description: 'Текст согласия на обработку персональных данных, которое даёт посетитель, отправляя заявку через форму расчёта стоимости на сайте.',
+    body: `${crumbs(cr)}
+<section class="sec sec--top"><div class="wrap wrap--narrow prose">
+  <h1 class="h1">Согласие на обработку персональных данных</h1>
+  <p>Отправляя заявку через форму расчёта стоимости на сайте «${esc(company.brand)}» и отмечая флажок согласия, я свободно, своей волей и в своём интересе даю согласие оператору — ${show(company.operator)} (далее — Оператор) — на обработку моих персональных данных на следующих условиях.</p>
+  <h2 class="h3">1. Перечень данных</h2>
+  <p>Имя; номер телефона; комментарий и ответы в форме расчёта (вид работ, площадь, дополнительные работы, сроки), если я их указал; адрес страницы, с которой отправлена заявка.</p>
+  <h2 class="h3">2. Цели обработки</h2>
+  <p>Связь со мной по заявке, расчёт стоимости и сроков работ, согласование осмотра объекта, выполнение работ.</p>
+  <h2 class="h3">3. Действия с данными</h2>
+  <p>Сбор, запись, систематизация, накопление, хранение, уточнение, использование, блокирование, удаление и уничтожение — с использованием средств автоматизации и без них.</p>
+  <h2 class="h3">4. Срок действия и отзыв</h2>
+  <p>Согласие действует до достижения целей обработки, но не более одного года с момента его получения. Я могу отозвать согласие в любой момент, сообщив об этом по телефону ${esc(company.phoneDisplay)}${isTodo(company.email) ? '' : ' или на e-mail ' + esc(company.email)}. После отзыва Оператор прекращает обработку и уничтожает данные в течение 30 дней, если иное не предусмотрено законом.</p>
+  <p>Подробнее — в <a href="${url('/politika-konfidentsialnosti/')}">политике конфиденциальности</a>.</p>
+</div></section>`,
+  };
+}
+
 export function notFound() {
   return {
-    path: '/404.html', file: '404.html', noindex: true, title: 'Страница не найдена — «Ровный шов»',
+    path: '/404.html', file: '404.html', noindex: true, title: `Страница не найдена — «${company.brand}»`,
     description: 'Такой страницы нет. Перейдите на главную или к услугам мастера-плиточника в Волжском.',
     body: `<section class="sec sec--top"><div class="wrap wrap--narrow nf">
   <p class="nf__code">404</p>

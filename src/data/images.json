@@ -131,18 +131,6 @@
    "page": "https://commons.wikimedia.org/wiki/File:Macchia_Vechhia_Kitchen.jpg"
   }
  },
- "svp-ukladka": {
-  "w": 1920,
-  "h": 1281,
-  "alt": "Пример: укладка крупного формата на систему выравнивания",
-  "kind": "stock",
-  "credit": {
-   "author": "Frank Winkelmann",
-   "license": "CC0",
-   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-   "page": "https://commons.wikimedia.org/wiki/File:Verlegen_von_Fliesen_mit_einem_Nivelliersystem.jpg"
-  }
- },
  "plitkorez": {
   "w": 1721,
   "h": 2376,
@@ -177,18 +165,6 @@
    "license": "CC BY-SA 4.0",
    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
    "page": "https://commons.wikimedia.org/wiki/File:Drywall_and_tools.jpg"
-  }
- },
- "zatirka": {
-  "w": 1920,
-  "h": 2560,
-  "alt": "Пример: затирка швов",
-  "kind": "stock",
-  "credit": {
-   "author": "Frank Winkelmann",
-   "license": "CC0",
-   "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-   "page": "https://commons.wikimedia.org/wiki/File:Einschl%C3%A4mmen_eines_Fugenm%C3%B6rtels.jpg"
   }
  }
 }

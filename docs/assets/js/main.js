@@ -82,7 +82,8 @@
     const steps = [...form.querySelectorAll('.qz__step')];
     const prev = form.querySelector('[data-prev]'), next = form.querySelector('[data-next]'), submit = form.querySelector('[data-submit]');
     const err = form.querySelector('.qz__err'), done = form.querySelector('.qz__done');
-    let cur = 0, started = false;
+    let cur = 0, started = false, pointerAt = 0;
+    form.addEventListener('pointerdown', () => { pointerAt = Date.now(); });
     const answered = st => !st.querySelector('.qz__opts') || st.querySelector('input:checked');
     const go = n => {
       steps[cur].hidden = true; cur = n; steps[cur].hidden = false;
@@ -97,7 +98,7 @@
     form.addEventListener('change', e => {
       if (!started) { started = true; goal('quiz_start'); }
       // радио-шаг: переходим дальше сами
-      if (e.target.type === 'radio' && cur < steps.length - 1) setTimeout(() => go(cur + 1), 180);
+      if (e.target.type === 'radio' && cur < steps.length - 1 && Date.now() - pointerAt < 1500) setTimeout(() => go(cur + 1), 180);
       // «Ничего из этого» снимает остальные галочки и наоборот
       if (e.target.name === 'extra') {
         const none = e.target.value === 'Ничего из этого';

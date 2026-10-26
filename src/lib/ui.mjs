@@ -91,6 +91,7 @@ function footer() {
   <div class="wrap ftr__bottom">
     <span>© ${new Date().getFullYear()} ${esc(company.brand)}, ${esc(company.city)}</span>
     <a href="${url('/politika-konfidentsialnosti/')}">Политика конфиденциальности</a>
+    <a href="${url('/soglasie/')}">Согласие на обработку данных</a>
     <a class="studio" href="${STUDIO_UTM()}" target="_blank" rel="noopener">Разработано в sitomika.ru</a>
   </div>
 </footer>
@@ -175,7 +176,7 @@ ${header(p)}
 ${p.body}
 </main>
 ${footer()}
-<script>window.SITE=${JSON.stringify({ lead: company.leadEndpoint, phone: company.phoneDisplay, tel, metrika: MODE === 'prod' && !isTodo(company.metrikaId) ? company.metrikaId : null })}</script>
+<script>window.SITE=${JSON.stringify({ lead: isTodo(company.leadEndpoint) ? null : company.leadEndpoint, phone: company.phoneDisplay, tel, metrika: MODE === 'prod' && !isTodo(company.metrikaId) ? company.metrikaId : null })}</script>
 <script src="${url('/assets/js/main.js')}?v=${pkgVersion}" defer></script>
 </body>
 </html>

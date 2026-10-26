@@ -391,3 +391,6 @@ p { margin: 0 0 1em; }
   .svcs:not(.svcs--small) .svc__more { grid-column: 1; }
   .svcs { gap: 10px; }
 }
+.svc, .svc__body { min-width: 0; }
+.h4 { overflow-wrap: break-word; -webkit-hyphens: auto; hyphens: auto; }
+@media (max-width: 360px) { .svcs:not(.svcs--small) .svc__img { width: 92px; } }

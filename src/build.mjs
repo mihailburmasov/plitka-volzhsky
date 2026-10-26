@@ -3,7 +3,7 @@
 import fs from 'fs';
 import path from 'path';
 import sharp from 'sharp';
-import { MODE, layout, company, abs, missing, drafts, SERVICE_LINKS } from './lib/ui.mjs';
+import { MODE, layout, company, abs, missing, drafts, isTodo, SERVICE_LINKS } from './lib/ui.mjs';
 import { SERVICES, servicePage, servicesHub } from './pages/services.mjs';
 import * as M from './pages/misc.mjs';
 
@@ -11,7 +11,9 @@ const OUT = MODE === 'prod' ? 'dist' : 'docs';
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(OUT, { recursive: true });
 
-const pages = [M.home(), servicesHub(), ...SERVICES.map(servicePage), M.works(), M.contacts(), M.privacy(), M.notFound()];
+const pages = [M.home(), servicesHub(), ...SERVICES.map(servicePage), M.works(), M.contacts(), M.privacy(), M.consent(), M.notFound()];
+// Факты, которые не выводятся на страницах, но без которых запускать нельзя
+for (const k of ['brandApproved', 'leadEndpoint']) if (isTodo(company[k])) missing.add(company[k].todo);
 
 // Без комментариев разработчика в HTML (они видны в исходном коде страницы)
 const strip = html => html.replace(/<!--(?!\[if)[\s\S]*?-->/g, '');
@@ -44,11 +46,11 @@ await sharp('src/static/favicon.svg').resize(48, 48).png().toFile(path.join(OUT,
 
 // OG-картинка 1200×630: фото справа, текст на графите слева
 {
-  const photo = await sharp('src/assets/img/elochka-vannaya-960.webp').resize(520, 630, { fit: 'cover', position: 'top' }).toBuffer();
+  const photo = await sharp('src/assets/img/elochka-vannaya-960.webp').resize(520, 630, { fit: 'cover', position: 'bottom' }).toBuffer();
   const grid = Array.from({ length: 10 }, (_, i) => `<path d="M${i * 68} 0V630" stroke="#ffffff" stroke-opacity=".05"/>`).join('') + Array.from({ length: 10 }, (_, i) => `<path d="M0 ${i * 68}H680" stroke="#ffffff" stroke-opacity=".05"/>`).join('');
   const svg = `<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="630" fill="#16181b"/>${grid}
   <path d="M60 70h34l14 14v34H60z" fill="#d07a45"/><path d="M60 94h48M84 70v48" stroke="#16181b" stroke-width="3"/>
-  <text x="128" y="106" font-family="Arial, sans-serif" font-weight="700" font-size="30" fill="#f4f1ec">Ровный шов</text>
+  <text x="128" y="106" font-family="Arial, sans-serif" font-weight="700" font-size="30" fill="#f4f1ec">${company.brand}</text>
   <text x="60" y="260" font-family="Arial, sans-serif" font-weight="700" font-size="58" fill="#f4f1ec">Укладка плитки</text>
   <text x="60" y="330" font-family="Arial, sans-serif" font-weight="700" font-size="58" fill="#f4f1ec">в Волжском</text>
   <text x="60" y="400" font-family="Arial, sans-serif" font-size="27" fill="#d07a45">Запил 45° · ниши · ванная под ключ</text>
