@@ -20,7 +20,11 @@ const strip = html => html.replace(/<!--(?!\[if)[\s\S]*?-->/g, '');
 for (const p of pages) {
   const file = p.file ? path.join(OUT, p.file) : path.join(OUT, p.path, 'index.html');
   fs.mkdirSync(path.dirname(file), { recursive: true });
-  fs.writeFileSync(file, strip(layout(p)));
+  const html = strip(layout(p));
+  // битая разметка из шаблонов (например, индекс из .map() вместо имени тега) не должна уйти на сайт
+  const bad = html.match(/<\/?(\d|undefined|null|\[object)[^>]*>/);
+  if (bad) { console.error(`Битый тег на ${p.path}: ${bad[0]}`); process.exit(1); }
+  fs.writeFileSync(file, html);
 }
 
 if (MODE === 'prod' && (missing.size || drafts.size)) {

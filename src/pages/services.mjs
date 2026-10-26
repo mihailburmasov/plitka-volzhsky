@@ -191,7 +191,7 @@ ${s.gallery?.length ? `<section class="sec sec--tint"><div class="wrap">
 ${s.faq?.length ? faqBlock(s.faq, { id: 'faq' }) : ''}
 <section class="sec"><div class="wrap">
   <h2 class="h2 reveal">Другие услуги</h2>
-  <div class="svcs svcs--small">${others.map(serviceCard).join('')}</div>
+  <div class="svcs svcs--small">${others.map(s => serviceCard(s)).join('')}</div>
 </div></section>
 ${ctaBand()}`,
   };

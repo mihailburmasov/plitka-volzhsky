@@ -90,7 +90,7 @@ export function home() {
 
 <section class="sec" id="uslugi"><div class="wrap">
   <div class="sec__head"><h2 class="h2 reveal">Услуги</h2><a class="link" href="${url('/uslugi/')}">Все услуги ${icons.arrow}</a></div>
-  <div class="svcs">${SERVICES.map(serviceCard).join('')}</div>
+  <div class="svcs">${SERVICES.map(s => serviceCard(s)).join('')}</div>
 </div></section>
 
 <section class="sec sec--peach miter"><div class="wrap miter__in">
